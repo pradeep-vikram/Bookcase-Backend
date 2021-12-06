@@ -4,6 +4,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const connectDB = require('./config/db')
 
+const login = require('./routes/api/login')
 
 const app = express()
 
@@ -23,13 +24,8 @@ app.use(express.urlencoded({
   extended: true
 }));
 
-app.get("/", (req, res) => {
-  res.send({ message: "We did it!" });
-});
+app.use('/',login);
 
-// app.post('/user',(req,res) =>{
-//   console.log(req.body)
-// })
 
 const port = process.env.PORT
 app.listen(port,()=>{
