@@ -5,12 +5,15 @@ const cors = require('cors')
 const connectDB = require('./config/db')
 
 const login = require('./routes/api/login')
+const addBook = require('./routes/api/addBook')
 
 const app = express()
 
 // Connect database
 connectDB();
 
+// Load user model
+// const User = require('./models/user')
 
 // --> for cors(cross origin resource sharing)
 app.use(cors())
@@ -25,6 +28,7 @@ app.use(express.urlencoded({
 }));
 
 app.use('/',login);
+app.use('/addBook',addBook);
 
 
 const port = process.env.PORT
