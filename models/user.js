@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema({
         type:String,
         required:[true,"Can't be blank"]
     },
-    book : {
+    book : [{
         title:{
             type:String
         },
@@ -41,7 +41,7 @@ const userSchema = new mongoose.Schema({
         readtype:{
             type:String
         }
-    }
+    }]
 },{timestamps: true})
 
 userSchema.plugin(uniqueValidator, {message: 'Already taken.'});

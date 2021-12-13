@@ -6,6 +6,7 @@ const connectDB = require('./config/db')
 
 const login = require('./routes/api/login')
 const addBook = require('./routes/api/addBook')
+const home = require('./routes/api/home')
 
 const app = express()
 
@@ -29,6 +30,7 @@ app.use(express.urlencoded({
 
 app.use('/',login);
 app.use('/addBook',addBook);
+app.use('/home',home)
 
 
 const port = process.env.PORT
